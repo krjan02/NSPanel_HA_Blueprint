@@ -1655,7 +1655,7 @@ display:
         - lambda: |-
             ESP_LOGV("display.disp1.on_setup", "Publish IP address");
             auto ip = network::get_ip_address();
-            id(disp1).set_component_text_printf("boot.ip_addr", "%d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3]);
+            id(disp1).set_component_text_printf("boot.ip_addr", "%s", network::get_ip_address().str().c_str());
             ESP_LOGV("display.disp1.on_setup", "Report to Home Assistant");
             auto ha_event = new esphome::api::CustomAPIDevice();
             ha_event->fire_homeassistant_event("esphome.nspanel_ha_blueprint",
