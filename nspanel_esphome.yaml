@@ -57,7 +57,7 @@ esphome:
           timeout: 120s
       - lambda: |-
           static const char *const TAG = "on_boot";
-          if (not id(tf_uart).available() or not id(disp1).is_setup())
+          if (not id(disp1).is_setup())
             {
               ESP_LOGE(TAG, "No response from Nextion display");
               ESP_LOGD(TAG, "Turn off Nextion");
