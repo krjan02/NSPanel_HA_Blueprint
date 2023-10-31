@@ -40,6 +40,9 @@ web_server:
 esphome:
   name: ${device_name}
   min_version: 2023.5.0
+  platformio_options:
+    build_flags:
+      - -Wno-missing-field-initializers
   on_boot:
     priority: 200.0
     then:
@@ -51,10 +54,10 @@ esphome:
       - wait_until:
           condition:
             - lambda: !lambda return id(disp1).is_setup();
-          timeout: 20s
+          timeout: 120s
       - lambda: |-
           static const char *const TAG = "on_boot";
-          if (not id(tf_uart).available() or not id(disp1).is_setup())
+          if (not id(disp1).is_setup())
             {
               ESP_LOGE(TAG, "No response from Nextion display");
               ESP_LOGD(TAG, "Turn off Nextion");
