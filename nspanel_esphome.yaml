@@ -54,7 +54,7 @@ esphome:
       - wait_until:
           condition:
             - lambda: !lambda return id(disp1).is_setup();
-          timeout: 20s
+          timeout: 120s
       - lambda: |-
           static const char *const TAG = "on_boot";
           if (not id(tf_uart).available() or not id(disp1).is_setup())
