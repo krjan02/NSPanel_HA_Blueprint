@@ -65,6 +65,10 @@ wifi:
     - id: wifi_default
       ssid: ${wifi_ssid}
       password: ${wifi_password}
+      manual_ip:
+        static_ip: ${wifi_static_ip}
+        gateway: ${wifi_gateway}
+        subnet: ${wifi_subnet}
   ap:
     ssid: "${device_name}"
     password: ${wifi_password}
