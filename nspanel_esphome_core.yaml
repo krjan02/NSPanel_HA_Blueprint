@@ -39,10 +39,8 @@ esphome:
           if (not disp1->is_setup()) {
             ESP_LOGE(TAG, "No response from Nextion display");
             ESP_LOGD(TAG, "Turn off Nextionx NOPE");
-            #screen_power->turn_off();
             delay(1500);
             ESP_LOGD(TAG, "Turn on Nextion NOPE");
-            #screen_power->turn_on();
           }
       - wait_until:
           condition:
